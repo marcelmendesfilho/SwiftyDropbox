@@ -6,9 +6,9 @@ import Foundation
 import Alamofire
 
 open class DropboxTransportClient {
-    open let manager: SessionManager
-    open let backgroundManager: SessionManager
-    open let longpollManager: SessionManager
+    public let manager: SessionManager
+    public let backgroundManager: SessionManager
+    public let longpollManager: SessionManager
     open var accessToken: String
     open var selectUser: String?
     open var pathRoot: Common.PathRoot?
@@ -254,7 +254,7 @@ open class DropboxTransportClient {
 }
 
 open class Box<T> {
-    open let unboxed: T
+    public let unboxed: T
     init (_ v: T) { self.unboxed = v }
 }
 
@@ -465,7 +465,7 @@ open class Request<RSerial: JSONSerializer, ESerial: JSONSerializer> {
 
 /// An "rpc-style" request
 open class RpcRequest<RSerial: JSONSerializer, ESerial: JSONSerializer>: Request<RSerial, ESerial> {
-    open let request: Alamofire.DataRequest
+    public let request: Alamofire.DataRequest
 
     public init(request: Alamofire.DataRequest, responseSerializer: RSerial, errorSerializer: ESerial) {
         self.request = request
@@ -490,7 +490,7 @@ open class RpcRequest<RSerial: JSONSerializer, ESerial: JSONSerializer>: Request
 
 /// An "upload-style" request
 open class UploadRequest<RSerial: JSONSerializer, ESerial: JSONSerializer>: Request<RSerial, ESerial> {
-    open let request: Alamofire.UploadRequest
+    public let request: Alamofire.UploadRequest
 
     public init(request: Alamofire.UploadRequest, responseSerializer: RSerial, errorSerializer: ESerial) {
         self.request = request
@@ -523,7 +523,7 @@ open class UploadRequest<RSerial: JSONSerializer, ESerial: JSONSerializer>: Requ
 
 /// A "download-style" request to a file
 open class DownloadRequestFile<RSerial: JSONSerializer, ESerial: JSONSerializer>: Request<RSerial, ESerial> {
-    open let request: Alamofire.DownloadRequest
+    public let request: Alamofire.DownloadRequest
     open var urlPath: URL?
     open var errorMessage: Data
 
@@ -564,7 +564,7 @@ open class DownloadRequestFile<RSerial: JSONSerializer, ESerial: JSONSerializer>
 
 /// A "download-style" request to memory
 open class DownloadRequestMemory<RSerial: JSONSerializer, ESerial: JSONSerializer>: Request<RSerial, ESerial> {
-    open let request: Alamofire.DataRequest
+    public let request: Alamofire.DataRequest
 
     public init(request: Alamofire.DataRequest, responseSerializer: RSerial, errorSerializer: ESerial) {
         self.request = request
